@@ -107,11 +107,11 @@ const Details: React.FC = () => {
                   {pkmn.type2.toUpperCase()}
                 </Text>
               </SimpleGrid>)
-              : (<Box
+              : (<Text
                 className='detail-type'
                 bgGradient='linear(to-t, gray.900, gray.300)'>
                 {pkmn.type1.toUpperCase()}
-              </Box>)
+              </Text>)
             }
           </Box>
         </Center>

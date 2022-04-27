@@ -83,6 +83,13 @@ header {
   padding: 10px;
 }
 
+.home-type {
+  border-radius: 3px;
+  color: white;
+  width: 70px;
+  text-align: center;
+}
+
 .detail-type {
   border-radius: 3px;
   color: white;

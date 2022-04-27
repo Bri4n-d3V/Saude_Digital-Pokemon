@@ -1,4 +1,4 @@
-import { Container, Center, Text, Image } from '@chakra-ui/react';
+import { Container, Center, Text, Image, SimpleGrid, Box } from '@chakra-ui/react';
 import { IPokemon } from '../interfaces/IPokemon';
 import { Link } from 'react-router-dom';
 
@@ -21,12 +21,30 @@ const PokemonCard: React.FC<IPokemon> = ({
       </Center>
       <div>
         <h4>{name[0].toUpperCase() + name.substr(1)}</h4>
-        <div className='type'>
-          {(type2 !== type1)
-            ? (<><p>{type1}</p> <p>{type2}</p></>)
-            : (<p>{type1}</p>)
-          }
-        </div>
+
+        {(type2 !== type1)
+          ? (
+            <Center >
+              <SimpleGrid className='container-types' columns={2} spacing={5}>
+                  <Text
+                    className='home-type'
+                    bgGradient='linear(to-t, gray.900, gray.300)'>
+                    {type1}
+                  </Text>
+                  <Text
+                    className='home-type'
+                    bgGradient='linear(to-t, gray.900, gray.300)'>
+                    {type2}
+                  </Text>
+              </SimpleGrid>
+            </Center>)
+          : (<Text
+            className='home-type'
+            bgGradient='linear(to-t, gray.900, gray.300)'>
+            {type1}
+          </Text>)
+        }
+
         <Link
           key={name}
           className='link'

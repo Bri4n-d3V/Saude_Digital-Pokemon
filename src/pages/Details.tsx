@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchChar, fetchPkmn } from '../utils/pokeApi';
-import { IPkmnDetails } from "../interfaces/IPkmnDetails";
-import { ICharacteristicts } from "../interfaces/ICharacteristicts";
+import { IPkmnDetails } from '../interfaces/IPkmnDetails';
+import { ICharacteristicts } from '../interfaces/ICharacteristicts';
 import { Image, Text, Container, Grid, GridItem, Box, SimpleGrid, Center, Flex } from '@chakra-ui/react'
 
 const Details: React.FC = () => {
@@ -43,9 +43,9 @@ const Details: React.FC = () => {
     onLoadPkmnApi();
   }, [description]);
 
-  return pkmn === undefined ? <h1>Not found...</h1> : (
+  return pkmn === undefined ? <h1>Pokémon ot found. Please check the name and try again.</h1> : (
     <Container maxW='600px'>
-      <Center paddingInline='100px'>
+      <Center paddingTop='30px'>
         <Text
           fontSize='3xl'
           align='center'>
@@ -53,16 +53,21 @@ const Details: React.FC = () => {
         </Text>
         <Text
           fontSize='lg'
-          align='right'>
+          align='right'
+          color='gray'
+          paddingLeft='10px'>
           {`nº ${pkmn.id}`}
         </Text>
       </Center>
 
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 2, xl: 2 }} bg='gray.100'>
-
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 2, xl: 2 }}
+        bg='gray.100'
+        marginTop='30px'
+        paddingBottom='30px'>
         <Center bg='gray.200'>
           <Box>
-            <Image boxSize='200px' src={pkmn.spriteFront} />
+            <Image boxSize='200px' src={pkmn.spriteFront} alt={`${pkmn.name}-image`}/>
           </Box>
         </Center>
 
@@ -75,14 +80,12 @@ const Details: React.FC = () => {
         </Center>
 
         <Center>
-          <Box className="infos">
+          <Box className='infos' marginTop='30px'>
             <Center>
               <Text as='b'> INFOS </Text>
             </Center>
-
             <p>WEIGHT: {pkmn.weight} Kg</p>
             <p>HEIGHT: {pkmn.height} m</p>
-
           </Box>
         </Center>
 
@@ -91,26 +94,22 @@ const Details: React.FC = () => {
             <Center>
               <Text as='b'> TYPE </Text>
             </Center>
-
             {(pkmn.type2 !== pkmn.type1)
-              ? (
-                <SimpleGrid columns={2}>
-                  <Box
-                    className="detail-type"
-                    bgGradient='linear(to-t, gray.900, gray.300)'>
-                    {pkmn.type1.toUpperCase()}
-                  </Box>
-                  <Box
-                    className="detail-type"
-                    bgGradient='linear(to-t, gray.900, gray.300)'>
-                    {pkmn.type2.toUpperCase()}
-                  </Box>
-                </SimpleGrid>
-              )
+              ? (<SimpleGrid columns={2}>
+                <Text
+                  className='detail-type'
+                  bgGradient='linear(to-t, gray.900, gray.300)'>
+                  {pkmn.type1.toUpperCase()}
+                </Text>
+                <Text
+                  className='detail-type'
+                  bgGradient='linear(to-t, gray.900, gray.300)'>
+                  {pkmn.type2.toUpperCase()}
+                </Text>
+              </SimpleGrid>)
               : (<Box
-                className="detail-type"
-                bgGradient='linear(to-t, gray.900, gray.300)'
-              >
+                className='detail-type'
+                bgGradient='linear(to-t, gray.900, gray.300)'>
                 {pkmn.type1.toUpperCase()}
               </Box>)
             }
@@ -118,18 +117,14 @@ const Details: React.FC = () => {
         </Center>
 
         <Center>
-          <Box className="abilities">
+          <Box className='abilities'>
             <Center>
               <Text as='b'> ABILITIES </Text>
             </Center>
             {(pkmn.ability2 !== pkmn.ability1)
               ? (<>
-                <p>
-                  {pkmn.ability1.toUpperCase()}
-                </p>
-                <p>
-                  {pkmn.ability2.toUpperCase()}
-                </p>
+                <p> {pkmn.ability1.toUpperCase()} </p>
+                <p> {pkmn.ability2.toUpperCase()} </p>
               </>)
               : (<p>{pkmn.ability1.toUpperCase()}</p>)
             }
@@ -144,7 +139,7 @@ const Details: React.FC = () => {
             <SimpleGrid columns={3} spacing={2}>
               {pkmn.gameIndices.map(
                 ({ version: { name } }: any) =>
-                  <Box fontSize='sm' p={1}>{name.toUpperCase()}</Box>
+                  <Text fontSize='sm' p={1}>{name.toUpperCase()}</Text>
               )}
             </SimpleGrid>
           </Box>

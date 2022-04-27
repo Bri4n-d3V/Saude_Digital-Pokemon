@@ -1,4 +1,5 @@
 import { IButton } from "../interfaces/IButton"
+import { Button as Bttn } from '@chakra-ui/react'
 
 const Button: React.FC<IButton> = (
   { page, setPage, onClick, type }
@@ -19,8 +20,11 @@ const Button: React.FC<IButton> = (
   };
 
   return (
-    <div>
-      <button
+      <Bttn
+        colorScheme='yellow' 
+        size='xs'
+        padding='5px'
+        margin='10px'
         onClick={handleClick}
         type='button'
         disabled={
@@ -30,8 +34,7 @@ const Button: React.FC<IButton> = (
         }
       >
         {type}
-      </button>
-    </div>
+      </Bttn>
   )
 }
 

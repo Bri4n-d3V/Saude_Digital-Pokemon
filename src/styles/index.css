@@ -36,7 +36,6 @@ code {
   width: 100%;
   height: auto;
   background-color: rgba(66, 66, 66, 0.15);
-  display: flex;
   align-items: flex-end;
   justify-items: center;
   border-radius: 3px;
@@ -77,10 +76,6 @@ code {
   justify-content: end;
 }
 
-.card-pokemon .link p {
-  text-decoration: underline;
-}
-
 header {
   display: flex;
   justify-content: space-evenly;
@@ -88,14 +83,10 @@ header {
   padding: 10px;
 }
 
-header img {
-  width: 150px;
-}
-
 .detail-type {
   border-radius: 3px;
   color: white;
   text-align: center;
-  margin-inline: 3px;
-  padding:2px;
+  margin-inline: 5px;
+  padding-inline:5px;
 }

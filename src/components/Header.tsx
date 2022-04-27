@@ -1,12 +1,13 @@
 import pokedexLogo from '../images/pokedexLogo.png'
 import { AiOutlineGithub } from 'react-icons/ai';
-import { Box, Link, Text } from '@chakra-ui/react';
+import { Box, Link, Text, Image} from '@chakra-ui/react';
 
 export default function Header() {
   return (
     <header>
       <Link href='/'>
-      <img
+      <Image
+      width={150}
         src={pokedexLogo}
         alt='pokedex logo'
       />

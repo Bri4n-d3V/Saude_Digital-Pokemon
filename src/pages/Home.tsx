@@ -1,11 +1,60 @@
-import { Box } from '@chakra-ui/react';
-import Cards from '../components/Cards';
+import { useEffect, useState } from 'react';
+import { SimpleGrid, Box, Container } from '@chakra-ui/react'
+import { IPokemon } from '../interfaces/IPokemon';
+import { fetchPkmn } from '../utils/pokeApi';
+import PokemonCard from '../components/PokemonCard';
+import Button from '../components/Button';
 
-function Home() {
+const Home: React.FC = () => {
+  const [data, setData] = useState<IPokemon[]>([]);
+  const [page, setPage] = useState<number>(0);
+
+  const onLoadApi = async (num: number): Promise<void> => {
+    const pkmnArr: IPokemon[] = [];
+
+    for (let index = 0; index < 10; index++) {
+      pkmnArr[index] = await fetchPkmn(index + 1 + num) as IPokemon
+    }
+
+    setData(pkmnArr);
+  };
+
+  useEffect((): void => {
+    onLoadApi(0);
+  }, []);
+
+
   return (
-    <Box display='flex' maxH='100%' bg='blue.600' color='white' justifyContent='center'>
-      <Cards />
-    </Box>
+    <Container overflow='hidden' display='flex-column' maxH='80%' maxW='80%' justifyContent='center'>
+      <SimpleGrid columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={4}>
+        {data?.map((pkmn) => {
+          return (
+            <Box display="flex">
+              <PokemonCard
+                key={pkmn.name}
+                id={pkmn.id}
+                name={pkmn.name}
+                spriteFront={pkmn.spriteFront}
+                type1={pkmn.type1}
+                type2={pkmn.type2}
+              />
+            </Box>
+          )
+        })}
+      </SimpleGrid>
+      <Button
+        onClick={onLoadApi}
+        page={page}
+        setPage={setPage}
+        type={'Next'}
+      />
+      <Button
+        onClick={onLoadApi}
+        page={page}
+        setPage={setPage}
+        type={'Back'}
+      />
+    </Container>
   )
 }
 

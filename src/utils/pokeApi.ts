@@ -1,11 +1,14 @@
+import { ICharacteristicts } from "../interfaces/ICharacteristicts";
 import { IPkmnDetails } from "../interfaces/IPkmnDetails";
-import { IPokemon } from "../interfaces/IPokemon";
 
-export async function fetchPkmn(idOrName: number | string):Promise<IPokemon  | IPkmnDetails  | undefined> {
+export async function fetchPkmn(idOrName: number | string)
+  : Promise<IPkmnDetails | undefined> {
   try {
     const endpoint = await fetch(`https://pokeapi.co/api/v2/pokemon/${idOrName}`);
 
     const resolve = await endpoint.json();
+
+    const id = resolve.id;
     const name = resolve.name;
     const spriteFront = resolve.sprites.front_default;
     const type1 = resolve.types[0].type.name;
@@ -16,10 +19,10 @@ export async function fetchPkmn(idOrName: number | string):Promise<IPokemon  | I
     const ability1 = resolve.abilities[0].ability.name;
     let ability2 = ability1;
     if (resolve.abilities[1]) ability2 = resolve.abilities[1].ability.name;;
-    const gameIndices = resolve.game_indices; 
-
+    const gameIndices = resolve.game_indices;
 
     return {
+      id,
       name,
       spriteFront,
       type1,
@@ -28,7 +31,27 @@ export async function fetchPkmn(idOrName: number | string):Promise<IPokemon  | I
       height,
       ability1,
       ability2,
-      gameIndices, 
+      gameIndices,
+    }
+
+  } catch (error) {
+    console.log(error);
+  };
+};
+
+export async function fetchChar(Id: number)
+: Promise<ICharacteristicts | undefined> {
+  try {
+    const endpoint = await fetch(`https://pokeapi.co/api/v2/characteristic/${ Id }`);
+
+    const resolve = await endpoint.json();
+      
+    const id = resolve.id;
+    const descriptions = resolve.descriptions;
+
+    return {
+      id,
+      descriptions,
     }
 
   } catch (error) {

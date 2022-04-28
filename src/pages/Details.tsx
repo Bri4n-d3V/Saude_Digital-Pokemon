@@ -52,7 +52,7 @@ const Details: React.FC = () => {
           {(pkmn.name[0]).toUpperCase() + pkmn.name.substr(1)}
         </Text>
         <Text
-          fontSize='lg'
+          fontSize='xl'
           align='right'
           color='gray'
           paddingLeft='10px'>

@@ -1,6 +1,3 @@
-<div align="center" id="top"> 
-</div>
-
 <h1 align="center">Pokédex</h1>
 
 <br>

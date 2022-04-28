@@ -84,8 +84,8 @@ const Details: React.FC = () => {
             <Center>
               <Text as='b'> INFOS </Text>
             </Center>
-            <p>WEIGHT: {pkmn.weight} Kg</p>
-            <p>HEIGHT: {pkmn.height} m</p>
+            <Text>WEIGHT: {pkmn.weight} Kg</Text>
+            <Text>HEIGHT: {pkmn.height} m</Text>
           </Box>
         </Center>
 
@@ -123,10 +123,10 @@ const Details: React.FC = () => {
             </Center>
             {(pkmn.ability2 !== pkmn.ability1)
               ? (<>
-                <p> {pkmn.ability1.toUpperCase()} </p>
-                <p> {pkmn.ability2.toUpperCase()} </p>
+                <Text> {pkmn.ability1.toUpperCase()} </Text>
+                <Text> {pkmn.ability2.toUpperCase()} </Text>
               </>)
-              : (<p>{pkmn.ability1.toUpperCase()}</p>)
+              : (<Text>{pkmn.ability1.toUpperCase()}</Text>)
             }
           </Box>
         </Center>

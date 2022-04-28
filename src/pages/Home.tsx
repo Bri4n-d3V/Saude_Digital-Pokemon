@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SimpleGrid, Box, Container } from '@chakra-ui/react'
+import { SimpleGrid, Container, GridItem } from '@chakra-ui/react'
 import { IPokemon } from '../interfaces/IPokemon';
 import { fetchPkmn } from '../utils/pokeApi';
 import PokemonCard from '../components/PokemonCard';
@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       <SimpleGrid columns={{ sm: 2, md: 3, lg: 4, xl: 5 }} spacing={4}>
         {data?.map((pkmn) => {
           return (
-            <Box display="flex" marginTop='25%' marginBottom='10%'>
+            <GridItem display="flex" marginTop='25%' marginBottom='10%'>
               <PokemonCard
                 key={pkmn.name}
                 id={pkmn.id}
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
                 type1={pkmn.type1}
                 type2={pkmn.type2}
               />
-            </Box>
+            </GridItem>
           )
         })}
       </SimpleGrid>

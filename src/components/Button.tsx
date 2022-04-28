@@ -23,7 +23,7 @@ const Button: React.FC<IButton> = (
       <Bttn
         colorScheme='yellow' 
         size='xs'
-        padding='5px'
+        padding='15px'
         margin='10px'
         onClick={handleClick}
         type='button'

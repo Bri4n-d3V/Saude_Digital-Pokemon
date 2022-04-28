@@ -12,62 +12,25 @@ code {
     monospace;
 }
 
-/* acho q pode apagar */
-.card-pokemon {
-  /* min-width: 160px; */
-  /* width: 50px; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  box-shadow: 0 0 2px rgba(66, 66, 66, 0.15);
-}
 
 .card-pokemon:hover {
-  transform: scale(1.01);
+  transform: scale(1.05);
 }
 
-.card-pokemon .link-img {
-  display: block;
-  margin: 0;
-  padding: 0;
+.card-pokemon {
+  border: solid;
+  border-color: lightgray;
+  padding: 10px;
+  margin: -5px;
 }
 
-.card-pokemon div img {
-  width: 100%;
-  height: auto;
-  background-color: rgba(66, 66, 66, 0.15);
-  align-items: flex-end;
-  justify-items: center;
-  border-radius: 3px;
+.card-pokemon .card-name{
+  margin-bottom: 10px;
 }
 
-.card-pokemon div h4 {
-  width: 100%;
-  height: auto;
-  color: #000;
-  font-weight: 600;
-  align-items: flex-end;
-  justify-items: center;
-}
-
-.card-pokemon div .type {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: row;
-}
-
-.card-pokemon div .type p {
-  border-radius: 3px;
-}
-
-.card-pokemon .type p {
-  background: linear-gradient(180deg, #31313156 50%, #313131a6 50%);
-  background-color: #313131a6;
-  color: #fff;
-  padding: 0 12px;
-  margin-right: 6px;
-  max-width: 110px;
-  margin: 0 1.5625% 0 0;
+.card-pokemon .card-image {
+  margin-bottom: 10px;
+  border-radius: 3%;
 }
 
 .card-pokemon .link {
@@ -83,7 +46,7 @@ header {
   padding: 10px;
 }
 
-.home-type {
+.card-pokemon .card-type {
   border-radius: 3px;
   color: white;
   width: 70px;

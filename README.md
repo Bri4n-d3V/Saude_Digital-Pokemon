@@ -4,7 +4,7 @@
 
 ## 🎯 Sobre ##
 
-Aplicação front-end que simula uma pokédex que lista todos os pokémon existentes e exibe detalhes de cada um deles.
+Aplicação front-end responsiva que simula uma pokédex que lista todos os pokémon existentes e exibe detalhes de cada um deles.
 
 <br>
 

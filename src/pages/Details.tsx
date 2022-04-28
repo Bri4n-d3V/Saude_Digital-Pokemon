@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchChar, fetchPkmn } from '../utils/pokeApi';
 import { IPkmnDetails } from '../interfaces/IPkmnDetails';
 import { ICharacteristicts } from '../interfaces/ICharacteristicts';
-import { Image, Text, Container, Grid, GridItem, Box, SimpleGrid, Center, Flex } from '@chakra-ui/react'
+import { Image, Text, Container, Box, SimpleGrid, Center } from '@chakra-ui/react'
 
 const Details: React.FC = () => {
   const params = useParams();
